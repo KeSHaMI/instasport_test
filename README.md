@@ -8,6 +8,7 @@ Quick notes:
  - Added celery cron to clear all tasks which already started(clear all twice a hour)
  - Writed my first class-based views(previously was working with function based)
  - Didn't make different level of permissions because django admin already have limited access(I know how to add them to views)
+ - Usually i write tests(check other test tasks) but this task is very small, so i just manually tested it
  
  Models:
  <table>
