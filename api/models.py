@@ -6,6 +6,7 @@ from django.utils.timezone import now
 
 
 def time_validator(time):
+	"""Raises error if time less than current"""
 	if time < now():
 		raise ValidationError('You cannot start workout in the past!')
 

@@ -20,6 +20,6 @@ from app.views import Schedule
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-	path('', Schedule.as_view()),
 	path('app/', include('app.urls')),
+	path('', Schedule.as_view()),
 ]
