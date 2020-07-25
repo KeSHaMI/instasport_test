@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shedule</title>
+	<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+	<script type="text/javascript">
+		document.addEvenetListener('submit', function(){
+			location.href = 'http:localhost/';
+		})
+	</script>
+
+
+<div class="container">
+	<div class="row">
+	<div class="col-5">
+	<table class="table">
+		<h3>Public workouts</h3>
+		<thead class="thead-light">
+			<tr><td>Workout</td><td>Datetime</td></tr>
+		</thead>
+		{% block content %}
+			{% for workout in workouts %}
+			<tr><td>{{ workout.name }}</td><td>{{ workout.time }}</td></tr>
+			{% endfor %}	
+		{% endblock %}
+	</table >
+		
+	</div>
+		
+
+	<div class="col-5">
+		<h3 align="top">Personal workouts</h3>
+		{% block content2 %}
+		{% if authenticated %}
+		{% if pers_workouts %}
+	<table class="table">
+		<thead class="thead-light">
+		<tr><td>Workout</td><td>Datetime</td></tr>
+		</thead>
+
+		
+			{% for workout in pers_workouts %}
+			<tr><td>{{ workout.name }}</td><td>{{ workout.time }}</td></tr>
+			{% endfor %}
+		
+	</table>
+		{% else %}
+		<h5>You don't have any workouts on your schedule</h5>
+		<a href="/api/logout/">Log out</a>
+		{% endif %}
+		{% else %}
+		<h5>You are not loged in <a href="app/login">Log in</a></h5>
+			{% endif %}
+
+
+			</div>
+							
+	{% if pers_workouts%}
+
+	</div>
+	<div class="row">
+		<div class="col-9">
+		</div>
+
+			<div class="col-3">
+	<a href="/app/logout/">Log out</a>
+</div>
+	</div>	
+	{% endif %}
+	{% endblock %}
+</div>
+
+</body>
+</html>
