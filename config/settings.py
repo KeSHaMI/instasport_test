@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'instasport_test',
         'USER' : 'postgres',
-        'PASSWORD': '738419pm',
+        'PASSWORD': os.environ['DATABASE_PASSWORD'],
         'HOST' : '127.0.0.1',
         'PORT' : '5432'
     }
